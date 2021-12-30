@@ -7,11 +7,10 @@ import com.onurgundogdu.utils.LogUtil;
 
 public class WeatherManagement {
     public static void main(String[] args) {
-        LogUtil.getInstance().logInfo("Weather Management system is starting...");
-        new WeatherClient().run();
-        new BusinessClient().run();
-        new UserClient().run();
-        LogUtil.getInstance().logInfo("Weather Management system is started...");
+        LogUtil.getInstance().logInfo("Weather Management System is startin...");
+        UserClient userClient = new UserClient();
+        new Thread(userClient, userClient.getName()).start();
+        LogUtil.getInstance().logInfo("Weather Management System has started");
 
     }
 }
